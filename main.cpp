@@ -88,8 +88,15 @@ void display(node *n) {
 
 void generate_bill() {
   int bill_choice;
-  string bill[] = {"Electricity", "Water",     "Gas",   "Internet",
-                   "Cable/TV",    "Insurance", "Custom"};
+  string bill[] = {
+    "Electricity", 
+    "Water",     
+    "Gas",   
+    "Internet",
+    "Cable/TV",    
+    "Insurance", 
+    "Custom"
+  };
   cout << endl;
   int size = sizeof(bill) / sizeof(string);
   for (int i = 0; i < size; i++) {
@@ -118,10 +125,13 @@ void pay_bill() {
   }
   node *n = q.back_ptr();
   display(n);
-  paid_amount = n->bill_amount;
+  paid_amount += n->bill_amount;
   remaining_amount -= paid_amount;
   if (remaining_amount < 0) {
     remaining_amount = 0;
+  }
+  if (paid_amount < 0) {
+    paid_amount = 0;
   }
   cout << endl << "$ Payment Successful" << endl;
   s.push(n->bill_name, n->bill_amount);
