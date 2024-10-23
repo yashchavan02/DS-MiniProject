@@ -88,15 +88,8 @@ void display(node *n) {
 
 void generate_bill() {
   int bill_choice;
-  string bill[] = {
-    "Electricity", 
-    "Water",     
-    "Gas",   
-    "Internet",
-    "Cable/TV",    
-    "Insurance", 
-    "Custom"
-  };
+  string bill[] = {"Electricity", "Water",     "Gas",   "Internet",
+                   "Cable/TV",    "Insurance", "Custom"};
   cout << endl;
   int size = sizeof(bill) / sizeof(string);
   for (int i = 0; i < size; i++) {
@@ -133,7 +126,7 @@ void pay_bill() {
   if (paid_amount < 0) {
     paid_amount = 0;
   }
-  cout << endl << "$ Payment Successful" << endl;
+  cout << endl << "$ Payment Successful" << endl << endl;
   s.push(n->bill_name, n->bill_amount);
   q.dequeue();
 }
@@ -211,17 +204,20 @@ int main() {
     cout << "$ invalid input | please try again." << endl;
   }
   int ui;
-  cout << endl
-       << "1. Generate Bill" << endl
-       << "2. Pay Bill" << endl
-       << "3. View Pending Bill" << endl
-       << "4. View Paid Bill" << endl
-       << "5. Check Pending Bill Ammout" << endl
-       << "6. Check Paid Bill Ammout" << endl
-       << "7. Delete Bill Payment History" << endl
-       << "8. Exit" << endl
-       << endl;
   while (true) {
+    cout << endl
+         << endl
+         << "--------< Main Menu >--------" << endl
+         << endl
+         << "1. Generate Bill" << endl
+         << "2. Pay Bill" << endl
+         << "3. View Pending Bill" << endl
+         << "4. View Paid Bill" << endl
+         << "5. Check Pending Bill Ammout" << endl
+         << "6. Check Paid Bill Ammout" << endl
+         << "7. Delete Bill Payment History" << endl
+         << "8. Exit" << endl
+         << endl;
     cout << "? main input here : ";
     cin >> ui;
     switch (ui) {
