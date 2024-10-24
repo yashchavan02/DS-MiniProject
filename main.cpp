@@ -88,8 +88,15 @@ void display(node *n) {
 
 void generate_bill() {
   int bill_choice;
-  string bill[] = {"Electricity", "Water",     "Gas",   "Internet",
-                   "Cable/TV",    "Insurance", "Custom"};
+  string bill[] = {
+          "Electricity", 
+          "Water",     
+          "Gas",   
+          "Internet",
+          "Cable/TV",    
+          "Insurance", 
+          "Custom"
+  };
   cout << endl;
   int size = sizeof(bill) / sizeof(string);
   for (int i = 0; i < size; i++) {
@@ -189,6 +196,7 @@ void delete_bill_payment_history() {
     s.pop();
     n = s.top_ptr();
   }
+  paid_amount = 0;
   cout << endl << "$ The bill payment history is cleared successful." << endl;
 }
 
@@ -244,9 +252,7 @@ int main() {
       break;
     default:
       cout << endl << "$ Thank's For Visit Our Platform." << endl << endl;
-      exit(0);
+      return 0;
     }
   }
-  cout << endl << "$ Thank's For Visit Our Platform." << endl << endl;
-  return 0;
 }
