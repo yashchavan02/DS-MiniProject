@@ -126,7 +126,7 @@ void pay_bill() {
   node *n = q.back_ptr();
   display(n);
   paid_amount += n->bill_amount;
-  remaining_amount -= paid_amount;
+  remaining_amount -= n->bill_amount;
   if (remaining_amount < 0) {
     remaining_amount = 0;
   }
