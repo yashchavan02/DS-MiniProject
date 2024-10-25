@@ -37,7 +37,7 @@ public:
     top = top->next;
     delete temp;
   }
-  node *top_ptr() { return top; }
+  node *Top() { return top; }
 } s;
 
 class queue {
@@ -76,8 +76,8 @@ public:
     delete temp;
   }
 
-  node *back_ptr() { return back; }
-  node *front_ptr() { return front; }
+  node *Back() { return back; }
+  node *Front() { return front; }
 
 } q;
 
@@ -119,11 +119,11 @@ void generate_bill() {
 }
 
 void pay_bill() {
-  if (!q.back_ptr()) {
+  if (!q.Back()) {
     cout << endl << "$ There is no payment remaining to pay " << endl << endl;
     return;
   }
-  node *n = q.back_ptr();
+  node *n = q.Back();
   display(n);
   paid_amount += n->bill_amount;
   remaining_amount -= n->bill_amount;
@@ -139,7 +139,7 @@ void pay_bill() {
 }
 
 void view_pending_bill() {
-  node *n = q.back_ptr();
+  node *n = q.Back();
   if (!n) {
     cout << endl << "$ There is no pending payment" << endl << endl;
     return;
@@ -153,7 +153,7 @@ void view_pending_bill() {
 }
 
 void view_paid_bill() {
-  node *n = s.top_ptr();
+  node *n = s.Top();
   if (!n) {
     cout << endl << "$ There is no paid payment" << endl << endl;
     return;
@@ -187,14 +187,14 @@ void check_paid_bill_amout() {
 }
 
 void delete_bill_payment_history() {
-  node *n = s.top_ptr();
+  node *n = s.Top();
   if (!n) {
     cout << endl << "$ There is no bill payment history exist" << endl << endl;
     return;
   }
   while (n) {
     s.pop();
-    n = s.top_ptr();
+    n = s.Top();
   }
   paid_amount = 0;
   cout << endl << "$ The bill payment history is cleared successful." << endl;
