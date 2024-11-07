@@ -1,85 +1,14 @@
+#include "queue.h"
+#include "stack.h"
+
 #include <iostream>
 using namespace std;
 
-static double remaining_amount = 0;
-static double paid_amount = 0;
+stack s;
+queue q;
 
-struct node {
-  string bill_name;
-  double bill_amount;
-  node *next;
-};
-
-class stack {
-  node *top;
-
-public:
-  stack() { top = nullptr; }
-  void push(string name, double ammount) {
-    node *ns = new node;
-    if (!ns)
-      return;
-    ns->bill_name = name;
-    ns->bill_amount = ammount;
-    ns->next = nullptr;
-    if (!top) {
-      top = ns;
-      return;
-    }
-    ns->next = top;
-    top = ns;
-  }
-  void pop() {
-    if (!top) {
-      return;
-    }
-    node *temp = top;
-    top = top->next;
-    delete temp;
-  }
-  node *Top() { return top; }
-} s;
-
-class queue {
-  node *front, *back;
-
-public:
-  queue() {
-    front = nullptr;
-    back = nullptr;
-  }
-  void enqueue(string name, double ammount) {
-    node *nq = new node;
-    if (!nq)
-      return;
-    nq->bill_name = name;
-    nq->bill_amount = ammount;
-    nq->next = nullptr;
-    if (!front && !back) {
-      front = nq;
-      back = nq;
-      return;
-    }
-    front->next = nq;
-    front = nq;
-  }
-
-  void dequeue() {
-    if (!back) {
-      return;
-    }
-    node *temp = back;
-    back = back->next;
-    if (!back) {
-      front = nullptr;
-    }
-    delete temp;
-  }
-
-  node *Back() { return back; }
-  node *Front() { return front; }
-
-} q;
+double remaining_amount = 0;
+double paid_amount = 0;
 
 void display(node *n) {
   cout << endl << "$ Bill Name   : " << n->bill_name << " Bill." << endl;
@@ -88,15 +17,8 @@ void display(node *n) {
 
 void generate_bill() {
   int bill_choice;
-  string bill[] = {
-          "Electricity", 
-          "Water",     
-          "Gas",   
-          "Internet",
-          "Cable/TV",    
-          "Insurance", 
-          "Custom"
-  };
+  string bill[] = {"Electricity", "Water",     "Gas",   "Internet",
+                   "Cable/TV",    "Insurance", "Custom"};
   cout << endl;
   int size = sizeof(bill) / sizeof(string);
   for (int i = 0; i < size; i++) {
