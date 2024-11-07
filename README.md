@@ -3,7 +3,7 @@
 #### ➜ Run Project On Your Machine
 
 ```
-git clone --branch new-method https://github.com/yashchavan02/MiniProject-A.git
+git clone --branch new-method https://github.com/yashchavan02/DS-MiniProject.git
 ```
 ```
 cd MiniProject-A
