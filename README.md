@@ -6,7 +6,7 @@
 git clone --branch new-method https://github.com/yashchavan02/DS-MiniProject.git
 ```
 ```
-cd MiniProject-A
+cd DS-MiniProject
 ```
 
 ```
