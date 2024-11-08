@@ -10,7 +10,7 @@ cd DS-MiniProject
 ```
 
 ```
-g++ main.cpp queue.cpp stack.cpp -o main
+g++ src/main.cpp include/queue.cpp include/stack.cpp -o main
 ```
 
 ```
